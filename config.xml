@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.versantweb.formationphonegap"
+        version     = "1.0.0" >
+
+    <name>Championnat FSHBR</name>
+
+    <description>
+        Une petite application utilisée pour la formation à PhoneGap
+    </description>
+
+    <author href="https://versantweb.ch" email="herve.torche@versantweb.ch">
+        Hervé Torche - Versant Web Communication
+    </author>
+
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+
+    <preference name="phonegap-version" value="3.6.3" />
+    
+    <!-- pour permettre le téléchargement du programme TV -->
+    <access origin="http://www.fshbr.ch" subdomains="true" />
+</widget>

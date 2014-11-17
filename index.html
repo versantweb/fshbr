@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mon Programme TV du jour</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+	
+	<!-- Phonegap -->
+	<script src="phonegap.js"></script>
+	
+	<!-- jQuery -->
+	<script src="components/jquery/dist/jquery.min.js"></script>
+	
+	<!-- jQuery Mobile -->
+	<link rel="stylesheet" href="components/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="components/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="components/fontawesome/css/font-awesome.min.css" />
+	
+	<!-- Style de l'application -->
+	<link rel="stylesheet" href="css/style.css" />
+	
+	<!-- Fonctions Javascript -->
+	<script src="scripts/functions.js"></script>
+
+
+	<script>
+	
+	</script>
+
+</head>
+<body>
+
+<div data-role="panel" class="nav-menu" id="nav-menu" data-display="push" data-theme="a"></div>
+
+<!-- page listant les chaines -->
+<div data-role="page" id="page_chaines" class="page_with_menu">
+	
+	<div data-role="header">
+		<h1>Division</h1>
+    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+    <button class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-refresh refresh">refresh</button>
+	</div>
+
+	<div role="main" class="ui-content">
+		<!-- pour la liste des chaînes -->
+		<ul id="divisions" data-role="listview" data-filter="true" data-inset="false"></ul>
+	</div>
+
+	<script>	
+		classement('d3a', function(data){
+			alert('ok');
+		});
+	</script>
+</div>
+<!-- fin page listant les chaines -->
+
+
+
+<!-- page A propos -->
+<div data-role="page" id="page_a_propos" class="page_with_menu">
+	<div data-role="header">
+		<h1>A propos</h1>
+    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+	</div>
+
+	<div role="main" class="ui-content">
+		Information à propos de l'application
+		<br><br>
+		Cette application a été dévelopée par <a href="https://versantweb.ch" target="_blank">Versant Web Communication</a> dans un but éducatif.
+	</div>
+</div>
+<!-- fin page A propos -->
+
+
+<script>
+	init();
+</script>
+
+</body>
+</html>
