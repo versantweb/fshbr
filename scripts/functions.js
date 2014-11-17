@@ -38,9 +38,10 @@ alert(url);
   var equipe = '';
 
   $.get(url, function(data){
-    log(data);
+    var x = 0;
     // parcourt les équipes
     $(data).find(".classement tbody tr").each(function(){
+      alert(x++);
       var el = $(this);
       log(el.text());
       equipe = {};
