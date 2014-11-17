@@ -40,7 +40,9 @@ alert(url);
   $.get(url, function(data){
     var x = 0;
     // parcourt les équipes
-    $(data).find(".classement tbody tr").each(function(){
+    var $equipes = $(data).find(".classement tbody tr");
+    log($equipes);
+    $equipes.each(function(){
       alert(x++);
       var el = $(this);
       log(el.text());
