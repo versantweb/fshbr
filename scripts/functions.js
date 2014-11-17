@@ -45,15 +45,16 @@ function classement(division, success){
       equipe = {};
       // récupert les informations de l'équipe en cours
       $scores = $(data).find("td");
-      equipe.joue       = $scores[0];
-      equipe.gagne      = $scores[1];
-      equipe.egalite    = $scores[2];
-      equipe.perdu      = $scores[3];
-      equipe.marques    = $scores[4];
-      equipe.encaisses  = $scores[5];
-      equipe.difference = $scores[6];
-      equipe.points     = $scores[7];
-      console.log(equipe);
+      equipe.nom        = $scores[0];
+      equipe.joue       = $scores[1];
+      equipe.gagne      = $scores[2];
+      equipe.egalite    = $scores[3];
+      equipe.perdu      = $scores[4];
+      equipe.marques    = $scores[5];
+      equipe.encaisses  = $scores[6];
+      equipe.difference = $scores[7];
+      equipe.points     = $scores[8];
+      log(JSON.stringify(equipe));
     });
 
     // appelle la fonction de callback avec en paramètre les chaînes trouvées    
@@ -78,4 +79,10 @@ function init(){
       $(".nav-menu").trigger("updatelayout");
     });
   });
+}
+
+
+
+function log(text){
+  $('.console').append("<div>" + text + "</div>");
 }
