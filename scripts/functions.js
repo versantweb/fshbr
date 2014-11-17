@@ -1,5 +1,5 @@
 // définition des urls pour la récupération des informations
-var urls{
+var urls = {
   classement: {
     d1: "http://www.fshbr.ch/competitions/index/1",
     d2: "http://www.fshbr.ch/competitions/index/2",
