@@ -41,7 +41,7 @@ alert(url);
     var x = 0;
     // parcourt les équipes
     var $equipes = $(data).find(".classement tbody tr");
-    log($equipes);
+    log($equipes.length);
     $equipes.each(function(){
       alert(x++);
       var el = $(this);
