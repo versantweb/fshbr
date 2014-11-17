@@ -42,10 +42,10 @@ alert(url);
     // parcourt les équipes
     $(data).find(".classement tbody tr").each(function(){
       var el = $(this);
-
+      log(el.text());
       equipe = {};
       // récupert les informations de l'équipe en cours
-      $scores = $(data).find("td");
+      $scores = $el.find("td");
       equipe.nom        = $scores[0];
       equipe.joue       = $scores[1];
       equipe.gagne      = $scores[2];
