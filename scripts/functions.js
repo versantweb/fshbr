@@ -30,8 +30,8 @@ function setRealContentHeight() {
 
 // récupert le programme tv d'après un flux RSS donné
 function classement(division, success){
-  var url = urls.classement.division;
-  alert(url);
+  // récupert l'url du classement de la division demandée
+  var url = urls.classement[division];
 
   // pour stocker les chaînes et leurs programmes
   var equipes = [];
