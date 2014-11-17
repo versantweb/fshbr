@@ -32,7 +32,7 @@ function setRealContentHeight() {
 function classement(division, success){
   // récupert l'url du classement de la division demandée
   var url = urls.classement[division];
-alert(url);
+
   // pour stocker les chaînes et leurs programmes
   var equipes = [];
   var equipe = '';
@@ -44,7 +44,7 @@ alert(url);
     log($equipes.length);
     $equipes.each(function(){
       alert(x++);
-      var el = $(this);
+      var $el = $(this);
       log(el.text());
       equipe = {};
       // récupert les informations de l'équipe en cours
