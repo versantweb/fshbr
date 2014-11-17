@@ -37,7 +37,7 @@ function classement(division, success){
   var equipes = [];
   var equipe = '';
 
-  $.get(rss, function (data) {
+  $.get(url, function (data) {
     // parcourt les équipes
     $(data).find(".classement tbody tr").each(function(){
       var el = $(this);
