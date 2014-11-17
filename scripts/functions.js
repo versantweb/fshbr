@@ -47,21 +47,38 @@ alert(url);
       equipe = {};
       // récupert les informations de l'équipe en cours
       $scores = $el.find("td");
-      equipe.nom        = $scores[0];
-      equipe.joue       = $scores[1];
-      equipe.gagne      = $scores[2];
-      equipe.egalite    = $scores[3];
-      equipe.perdu      = $scores[4];
-      equipe.marques    = $scores[5];
-      equipe.encaisses  = $scores[6];
-      equipe.difference = $scores[7];
-      equipe.points     = $scores[8];
+      equipe.nom        = $($scores[0]).text();
+      equipe.joue       = $($scores[1]).text();
+      equipe.gagne      = $($scores[2]).text();
+      equipe.egalite    = $($scores[3]).text();
+      equipe.perdu      = $($scores[4]).text();
+      equipe.marques    = $($scores[5]).text();
+      equipe.encaisses  = $($scores[6]).text();
+      equipe.difference = $($scores[7]).text();
+      equipe.points     = $($scores[8]).text();
       log(JSON.stringify(equipe));
     });
 
     // appelle la fonction de callback avec en paramètre les chaînes trouvées    
     success(equipes);
   });
+}
+
+function test(){
+  var $cont = $('<tr><td><img src="http://www.fshbr.ch/img/clubs/murist-montet-black-tigers-hover.png"><a href="http://www.fshbr.ch/equipes/equipe/50">Murist/Montet Black Tigers II</a></td><td>2</td><td>1</td><td>0</td><td>1</td><td>12</td><td>13</td><td>-1</td><td>2</td></tr>');
+
+  equipe = {};
+  $scores = $cont.find("td");
+      equipe.nom        = $($scores[0]).text();
+      equipe.joue       = $($scores[1]).text();
+      equipe.gagne      = $($scores[2]).text();
+      equipe.egalite    = $($scores[3]).text();
+      equipe.perdu      = $($scores[4]).text();
+      equipe.marques    = $($scores[5]).text();
+      equipe.encaisses  = $($scores[6]).text();
+      equipe.difference = $($scores[7]).text();
+      equipe.points     = $($scores[8]).text();
+      console.log(equipe);
 }
 
 
