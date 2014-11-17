@@ -45,7 +45,7 @@ function classement(division, success){
     $equipes.each(function(){
       alert(x++);
       var $el = $(this);
-      log(el.text());
+      log($el.text());
       equipe = {};
       // récupert les informations de l'équipe en cours
       $scores = $el.find("td");
