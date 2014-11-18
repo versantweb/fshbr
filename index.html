@@ -38,7 +38,7 @@
 	</div>
 
 	<div role="main" class="ui-content">
-		<div class="console" style="width: 100%; height: 250px;"></div>
+		<!-- <div class="console" style="width: 100%; height: 250px;"></div> -->
 		<!-- pour la liste des chaînes -->
 		<ul id="divisions" data-role="listview" data-inset="false">
 			<li><a href='#' class='division' data-division='d1'>d1</a></li>
@@ -52,17 +52,16 @@
 	</div>
 
 	<script>	
-		// classement('d3a', function(data){
-		// 	alert('ok');
-		// });
-test();
+		get_classement('d3a', function(data){
+			// alert('ok');
+		});
 	</script>
 </div>
 <!-- fin page listant les divisions -->
 
 
 
-<!-- page listant les chaines -->
+<!-- page affichant le classement d'une division -->
 <div data-role="page" id="page_classement">
 	
 	<div data-role="header">
@@ -79,32 +78,19 @@ test();
 					<th>Equipe</th>
 					<th data-priority="1">MJ</th>
 					<th data-priority="2">MG</th>
-					<th data-priority="3">ME</th>
-					<th data-priority="4">MP</th>
-					<th data-priority="6">GM</th>
-					<th data-priority="7">GC</th>
-					<th data-priority="5">DIF.</th>
+					<th data-priority="2">ME</th>
+					<th data-priority="2">MP</th>
+					<th data-priority="4">GM</th>
+					<th data-priority="4">GC</th>
+					<th data-priority="3">DIF.</th>
 					<th>PTS</th>
 				</tr>
 			</thead>
 			<tbody></tbody>
 		</table>
-		<!-- <ul class="classement" data-role="listview" data-inset="true">
-			<li>
-				<div>Equipe</div>
-				<div>MJ</div>
-				<div>MG</div>
-				<div>ME</div>
-				<div>MP</div>
-				<div>GM</div>
-				<div>GC</div>
-				<div>DIF.</div>
-				<div>PTS</div>
-			</li>
-		</ul> -->
 	</div>
 </div>
-<!-- fin page listant les chaines -->
+<!-- fin page affichant le classement d'une division -->
 
 
 
@@ -122,6 +108,40 @@ test();
 	</div>
 </div>
 <!-- fin page A propos -->
+
+
+
+<!-- page d'une équipe -->
+<div data-role="page" id="page_equipe">
+	
+	<div data-role="header">
+		<h1></h1>
+    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+	</div>
+
+	<div role="main" class="ui-content">
+		<!-- pour la liste des joueurs -->
+		<ul id="joueurs" class="joueurs" data-role="listview" data-filter="true" data-filter-placeholder="Rechercher un joueur..." data-inset="true"></ul>
+	</div>
+</div>
+<!-- fin page d'une équipe -->
+
+
+
+<!-- page d'un joueur -->
+<div data-role="page" id="page_joueur">
+	
+	<div data-role="header">
+		<h1></h1>
+    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+	</div>
+
+	<div role="main" class="ui-content">
+		<!-- pour la liste des joueurs -->
+		<ul id="joueur" data-role="listview" data-count-theme="b" data-inset="true"></ul>
+	</div>
+</div>
+<!-- fin page d'un joueur -->
 
 
 <script>
