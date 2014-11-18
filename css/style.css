@@ -8,10 +8,15 @@
     margin-top: 50px;
     font-size: 10em; }
 
-.classement tr td, .classement tr th {
-  text-align: center; }
-.classement tr td:first-child, .classement tr th:first-child {
-  text-align: left; }
+.ui-table-columntoggle-btn {
+  display: none; }
+
+.classement {
+  font-size: 0.8em; }
+  .classement tr td, .classement tr th {
+    text-align: center; }
+  .classement tr td:first-child, .classement tr th:first-child {
+    text-align: left; }
 
 #bowlG {
   position: relative;
