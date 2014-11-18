@@ -1,3 +1,9 @@
+.ui-title{
+  text-transform: capitalize;
+}
+
+
+
 .ui-content{
 	text-align: center;
 	-webkit-overflow-scrolling: touch;
@@ -10,14 +16,18 @@
 
 
 
-.programme{
-	margin-bottom: 40px;
+.classement{
+	tr{
 
-	&:last-child{
-		margin-bottom: 0;
+		td, th{
+			text-align: center;
+		}
+
+		td:first-child, th:first-child{
+			text-align: left;
+		}
 	}
 }
-
 
 
 

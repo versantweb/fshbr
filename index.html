@@ -29,34 +29,87 @@
 
 <div data-role="panel" class="nav-menu" id="nav-menu" data-display="push" data-theme="a"></div>
 
-<!-- page listant les chaines -->
-<div data-role="page" id="page_chaines" class="page_with_menu">
+<!-- page listant les divisions -->
+<div data-role="page" id="page_divisions">
 	
 	<div data-role="header">
 		<h1>Division</h1>
     <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
-    <button class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-refresh refresh">refresh</button>
 	</div>
 
 	<div role="main" class="ui-content">
 		<div class="console" style="width: 100%; height: 250px;"></div>
 		<!-- pour la liste des chaînes -->
-		<ul id="divisions" data-role="listview" data-filter="true" data-inset="false"></ul>
+		<ul id="divisions" data-role="listview" data-inset="false">
+			<li><a href='#' class='division' data-division='d1'>d1</a></li>
+	    <li><a href='#' class='division' data-division='d2'>d2</a></li>
+	    <li><a href='#' class='division' data-division='d3a'>d3a</a></li>
+	    <li><a href='#' class='division' data-division='d3b'>d3b</a></li>
+	    <li><a href='#' class='division' data-division='juniors'>juniors</a></li>
+	    <li><a href='#' class='division' data-division='novices'>novices</a></li>
+	    <li><a href='#' class='division' data-division='minis'>minis</a></li>
+		</ul>
 	</div>
 
 	<script>	
-		classement('d3a', function(data){
-			alert('ok');
-		});
-// test();
+		// classement('d3a', function(data){
+		// 	alert('ok');
+		// });
+test();
 	</script>
+</div>
+<!-- fin page listant les divisions -->
+
+
+
+<!-- page listant les chaines -->
+<div data-role="page" id="page_classement">
+	
+	<div data-role="header">
+		<h1>Classement</h1>
+    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+    <button class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-refresh refresh">refresh</button>
+	</div>
+
+	<div role="main" class="ui-content">
+		<!-- pour le classement -->
+		<table class="classement ui-responsive table-stroke" data-role="table">
+			<thead>
+				<tr>
+					<th data-priority="1">Equipe</th>
+					<th data-priority="3">MJ</th>
+					<th data-priority="4">MG</th>
+					<th data-priority="5">ME</th>
+					<th data-priority="6">MP</th>
+					<th data-priority="8">GM</th>
+					<th data-priority="9">GC</th>
+					<th data-priority="7">DIF.</th>
+					<th data-priority="2">PTS</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		<!-- <ul class="classement" data-role="listview" data-inset="true">
+			<li>
+				<div>Equipe</div>
+				<div>MJ</div>
+				<div>MG</div>
+				<div>ME</div>
+				<div>MP</div>
+				<div>GM</div>
+				<div>GC</div>
+				<div>DIF.</div>
+				<div>PTS</div>
+			</li>
+		</ul> -->
+	</div>
 </div>
 <!-- fin page listant les chaines -->
 
 
 
 <!-- page A propos -->
-<div data-role="page" id="page_a_propos" class="page_with_menu">
+<div data-role="page" id="page_a_propos">
 	<div data-role="header">
 		<h1>A propos</h1>
     <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>

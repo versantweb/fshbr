@@ -11,6 +11,15 @@ var urls = {
   }
 }
 
+
+// pour stocker la division que l'on regarde 
+var division = '';
+
+// pour stocker l'équipe' que l'on regarde 
+var equipe = '';
+
+
+
 // met la page en 100% de haut
 function setRealContentHeight() {
   var header = $.mobile.activePage.find("div[data-role='header']:visible");
@@ -37,15 +46,23 @@ function classement(division, success){
   var equipes = [];
   var equipe = '';
 
+  // modifie le titre de la page
+  $('#page_classement h1').append(" " + division);
+
+  // récupert le classement de la division demandée
   $.get(url, function(data){
     var x = 0;
+    
+    var $liste = $("#page_classement .classement tbody");
+
+    // vide le classement
+    $liste.empty();
+
     // parcourt les équipes
     var $equipes = $(data).find(".classement tbody tr");
-    log($equipes.length);
+
     $equipes.each(function(){
-      alert(x++);
       var $el = $(this);
-      log($el.text());
       equipe = {};
       // récupert les informations de l'équipe en cours
       $scores = $el.find("td");
@@ -58,7 +75,8 @@ function classement(division, success){
       equipe.encaisses  = $($scores[6]).text();
       equipe.difference = $($scores[7]).text();
       equipe.points     = $($scores[8]).text();
-      log(JSON.stringify(equipe));
+      // log(JSON.stringify(equipe));
+      $liste.append("<tr class='equipe'><td>" + equipe.nom + "</td><td>" + equipe.joue + "</td><td>" + equipe.gagne + "</td><td>" + equipe.egalite + "</td><td>" + equipe.perdu + "</td><td>" + equipe.marques + "</td><td>" + equipe.encaisses + "</td><td>" + equipe.difference + "</td><td>" + equipe.points + "</td></tr>")
     });
 
     // appelle la fonction de callback avec en paramètre les chaînes trouvées    
@@ -68,19 +86,23 @@ function classement(division, success){
 
 function test(){
   var $cont = $('<tr><td><img src="http://www.fshbr.ch/img/clubs/murist-montet-black-tigers-hover.png"><a href="http://www.fshbr.ch/equipes/equipe/50">Murist/Montet Black Tigers II</a></td><td>2</td><td>1</td><td>0</td><td>1</td><td>12</td><td>13</td><td>-1</td><td>2</td></tr>');
+  var $liste = $("#page_classement .classement tbody");
+
+  $liste.empty();
 
   equipe = {};
   $scores = $cont.find("td");
-      equipe.nom        = $($scores[0]).text();
-      equipe.joue       = $($scores[1]).text();
-      equipe.gagne      = $($scores[2]).text();
-      equipe.egalite    = $($scores[3]).text();
-      equipe.perdu      = $($scores[4]).text();
-      equipe.marques    = $($scores[5]).text();
-      equipe.encaisses  = $($scores[6]).text();
-      equipe.difference = $($scores[7]).text();
-      equipe.points     = $($scores[8]).text();
-      console.log(equipe);
+  equipe.nom        = $($scores[0]).text();
+  equipe.joue       = $($scores[1]).text();
+  equipe.gagne      = $($scores[2]).text();
+  equipe.egalite    = $($scores[3]).text();
+  equipe.perdu      = $($scores[4]).text();
+  equipe.marques    = $($scores[5]).text();
+  equipe.encaisses  = $($scores[6]).text();
+  equipe.difference = $($scores[7]).text();
+  equipe.points     = $($scores[8]).text();
+
+  $liste.append("<tr class='equipe'><td>" + equipe.nom + "</td><td>" + equipe.joue + "</td><td>" + equipe.gagne + "</td><td>" + equipe.egalite + "</td><td>" + equipe.perdu + "</td><td>" + equipe.marques + "</td><td>" + equipe.encaisses + "</td><td>" + equipe.difference + "</td><td>" + equipe.points + "</td></tr>")
 }
 
 
@@ -99,6 +121,21 @@ function init(){
       $(".nav-menu").panel();
       $(".nav-menu").trigger("updatelayout");
     });
+  });
+
+  // lors d'un clic sur une division (pour voir le classement)
+  $(document).on("click", ".division", function(){
+    classement($(this).data('division'), function(){
+      document.location = "#page_classement";
+      // raffraichit la liste
+      $("#page_classement .classement").table("rebuild");;
+    });
+    
+
+    // test();
+    // document.location = "#page_classement";
+    // // raffraichit la liste
+    // $("#page_classement .classement").table( "rebuild" );;
   });
 }
 

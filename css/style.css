@@ -1,3 +1,6 @@
+.ui-title {
+  text-transform: capitalize; }
+
 .ui-content {
   text-align: center;
   -webkit-overflow-scrolling: touch; }
@@ -5,10 +8,10 @@
     margin-top: 50px;
     font-size: 10em; }
 
-.programme {
-  margin-bottom: 40px; }
-  .programme:last-child {
-    margin-bottom: 0; }
+.classement tr td, .classement tr th {
+  text-align: center; }
+.classement tr td:first-child, .classement tr th:first-child {
+  text-align: left; }
 
 #bowlG {
   position: relative;
