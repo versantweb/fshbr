@@ -187,6 +187,7 @@ function init(){
   $(document).on("pageshow", function(){
     $(".nav-menu").load("menu.html", function(){
       $(".nav-menu").panel();
+      $(".nav-menu ul").listview();
       $(".nav-menu").trigger("updatelayout");
     });
   });

@@ -13,9 +13,22 @@
 	<script src="components/jquery/dist/jquery.min.js"></script>
 	
 	<!-- jQuery Mobile -->
-	<link rel="stylesheet" href="components/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-	<script src="components/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<!--<link rel="stylesheet" href="components/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="components/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
 	
+	
+
+	<!-- theme jQuery mobile -->
+	<link rel="stylesheet" href="css/theme/jquerymobile.nativedroid.css" />
+	
+	<!-- nativeDroid: Light/Dark -->
+  <link rel="stylesheet" href="css/theme/jquerymobile.nativedroid.light.css"  id='jQMnDTheme' />
+
+	<!-- nativeDroid: Color Schemes -->
+  <link rel="stylesheet" href="css/theme/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="components/fontawesome/css/font-awesome.min.css" />
 	
@@ -27,20 +40,20 @@
 </head>
 <body>
 
-<div data-role="panel" class="nav-menu" id="nav-menu" data-display="push" data-theme="a"></div>
+<div data-role="panel" class="nav-menu" id="nav-menu" data-display="push" data-theme="b"></div>
 
 <!-- page listant les divisions -->
-<div data-role="page" id="page_divisions">
+<div data-role="page" id="page_divisions" data-theme="b">
 	
-	<div data-role="header">
+	<div data-role="header" data-theme='b'>
+    <a href="#nav-menu"><i class='fa fa-bars'></i></a>
 		<h1>Division</h1>
-    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
 	</div>
 
 	<div role="main" class="ui-content">
 		<!-- <div class="console" style="width: 100%; height: 250px;"></div> -->
 		<!-- pour la liste des chaînes -->
-		<ul id="divisions" data-role="listview" data-inset="false">
+		<ul id="divisions" data-role="listview" data-inset="false" data-theme='b'>
 			<li><a href='#' class='division' data-division='d1'>d1</a></li>
 	    <li><a href='#' class='division' data-division='d2'>d2</a></li>
 	    <li><a href='#' class='division' data-division='d3a'>d3a</a></li>
@@ -62,17 +75,17 @@
 
 
 <!-- page affichant le classement d'une division -->
-<div data-role="page" id="page_classement">
+<div data-role="page" id="page_classement" data-theme="b">
 	
-	<div data-role="header">
+	<div data-role="header" data-theme='b'>
 		<h1>Classement</h1>
-    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+    <a href="#nav-menu"><i class='fa fa-bars'></i></a>
     <button class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-refresh refresh">refresh</button>
 	</div>
 
 	<div role="main" class="ui-content">
 		<!-- pour le classement -->
-		<table data-role="table" id="classement" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive classement" data-column-popup-theme="a">
+		<table data-role="table" id="classement" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive classement" data-column-popup-theme="b">
 			<thead>
 				<tr>
 					<th>Equipe</th>
@@ -95,10 +108,10 @@
 
 
 <!-- page A propos -->
-<div data-role="page" id="page_a_propos">
+<div data-role="page" id="page_a_propos" data-theme="b">
 	<div data-role="header">
 		<h1>A propos</h1>
-    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+    <a href="#nav-menu"><i class='fa fa-bars'></i></a>
 	</div>
 
 	<div role="main" class="ui-content">
@@ -112,11 +125,11 @@
 
 
 <!-- page d'une équipe -->
-<div data-role="page" id="page_equipe">
+<div data-role="page" id="page_equipe" data-theme="b">
 	
 	<div data-role="header">
 		<h1></h1>
-    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+    <a href="#nav-menu"><i class='fa fa-bars'></i></a>
 	</div>
 
 	<div role="main" class="ui-content">
@@ -129,11 +142,11 @@
 
 
 <!-- page d'un joueur -->
-<div data-role="page" id="page_joueur">
+<div data-role="page" id="page_joueur" data-theme="b"	>
 	
 	<div data-role="header">
 		<h1></h1>
-    <a href="#nav-menu" data-icon="bars" data-iconpos="notext">Menu</a>
+    <a href="#nav-menu"><i class='fa fa-bars'></i></a>
 	</div>
 
 	<div role="main" class="ui-content">
