@@ -22,8 +22,9 @@
 
 
 
+// pour le classement
 .classement{
-	font-size: 0.8em;
+	font-size: 1em;
 
 	tr{
 
@@ -33,6 +34,69 @@
 
 		td:first-child, th:first-child{
 			text-align: left;
+		}
+	}
+}
+
+
+
+// pour les matchs du jour
+ul#matchs_live{
+	li{
+		text-align: center;
+		padding: 20px 0;
+		background-color: #ffffff;
+
+		.match_live_division{
+			color: #8abd00;
+		}
+
+		.match_live_date{
+			margin-bottom: 20px;
+		}
+
+		.match_live_equipe{
+			display: inline-block;
+			vertical-align: middle;
+
+			&:first-child{
+				margin-right: 20px;
+			}
+
+			&:last-child{
+				margin-left: 20px;
+			}
+		}
+
+		.match_live_score{
+			display: inline-block;
+			width: 150px;
+		}
+
+		.match_live_equipe_texte{
+			margin-top: 20px;
+		}
+	}	
+}
+
+
+
+// pour les statistiques des joueurs
+ul#joueur{
+	li{
+
+		span{
+			display: inline-block;
+
+			&:first-child{
+				width: 150px;
+			}
+
+			&:last-child{
+				width: 50px;
+				text-align: center;
+				padding-right: 10px;
+			}
 		}
 	}
 }

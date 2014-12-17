@@ -1304,6 +1304,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/menu.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1343,7 +1352,7 @@
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",
-	"displayValue": "Formation Phonegap",
+	"displayValue": "Skater",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "compass_darkGray"
 	},

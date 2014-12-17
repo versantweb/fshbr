@@ -65,7 +65,7 @@
 	</div>
 
 	<script>	
-		get_classement('d3a', function(data){
+		get_classement('d3a', false, function(data){
 			// alert('ok');
 		});
 	</script>
@@ -80,7 +80,7 @@
 	<div data-role="header" data-theme='b'>
 		<h1>Classement</h1>
     <a href="#nav-menu"><i class='fa fa-bars'></i></a>
-    <button class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-refresh refresh">refresh</button>
+    <button class="ui-btn-right refresh"><i class='fa fa-refresh'></i></button>
 	</div>
 
 	<div role="main" class="ui-content">
@@ -117,7 +117,7 @@
 	<div role="main" class="ui-content">
 		Information à propos de l'application
 		<br><br>
-		Cette application a été dévelopée par <a href="https://versantweb.ch" target="_blank">Versant Web Communication</a> dans un but éducatif.
+		Cette application a été dévelopée par <a href="https://versantweb.ch" target="_blank">Versant Web Communication</a>.
 	</div>
 </div>
 <!-- fin page A propos -->
@@ -130,6 +130,7 @@
 	<div data-role="header">
 		<h1></h1>
     <a href="#nav-menu"><i class='fa fa-bars'></i></a>
+    <button class="ui-btn-right refresh"><i class='fa fa-refresh'></i></button>
 	</div>
 
 	<div role="main" class="ui-content">
@@ -152,6 +153,23 @@
 	<div role="main" class="ui-content">
 		<!-- pour la liste des joueurs -->
 		<ul id="joueur" data-role="listview" data-count-theme="b" data-inset="true"></ul>
+	</div>
+</div>
+<!-- fin page d'un joueur -->
+
+
+
+<!-- page des rencontres live -->
+<div data-role="page" id="page_matchs_live" data-theme="b"	>
+	
+	<div data-role="header">
+		<h1>Les matchs du jour</h1>
+    <a href="#nav-menu"><i class='fa fa-bars'></i></a>
+	</div>
+
+	<div role="main" class="ui-content">
+		<!-- pour la liste des matchs -->
+		<ul id="matchs_live" class="matchs_live" data-role="listview" data-count-theme="b" data-inset="true"></ul>
 	</div>
 </div>
 <!-- fin page d'un joueur -->
