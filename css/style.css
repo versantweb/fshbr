@@ -23,26 +23,38 @@
   .classement tr td:first-child, .classement tr th:first-child {
     text-align: left; }
 
-ul#matchs_live li {
+ul#matchs_live li,
+ul#calendrier li {
   text-align: center;
   padding: 20px 0;
   background-color: #ffffff; }
-  ul#matchs_live li .match_live_division {
+  ul#matchs_live li .match_division,
+  ul#calendrier li .match_division {
     color: #8abd00; }
-  ul#matchs_live li .match_live_date {
+  ul#matchs_live li .match_date,
+  ul#calendrier li .match_date {
     margin-bottom: 20px; }
-  ul#matchs_live li .match_live_equipe {
+  ul#matchs_live li .match_equipe,
+  ul#calendrier li .match_equipe {
     display: inline-block;
     vertical-align: middle; }
-    ul#matchs_live li .match_live_equipe:first-child {
+    ul#matchs_live li .match_equipe:first-child,
+    ul#calendrier li .match_equipe:first-child {
       margin-right: 20px; }
-    ul#matchs_live li .match_live_equipe:last-child {
+    ul#matchs_live li .match_equipe:last-child,
+    ul#calendrier li .match_equipe:last-child {
       margin-left: 20px; }
-  ul#matchs_live li .match_live_score {
+  ul#matchs_live li .match_score,
+  ul#calendrier li .match_score {
     display: inline-block;
     width: 150px; }
-  ul#matchs_live li .match_live_equipe_texte {
+  ul#matchs_live li .match_equipe_texte,
+  ul#calendrier li .match_equipe_texte {
     margin-top: 20px; }
+  ul#matchs_live li .vs,
+  ul#calendrier li .vs {
+    display: inline-block;
+    margin: 0 20px; }
 
 ul#joueur li {
   border-bottom: solid rgba(0, 0, 0, 0.1); }

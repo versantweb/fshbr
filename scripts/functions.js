@@ -349,12 +349,12 @@ function get_joueur(nom_joueur, refresh, url, success){
   // si on prend les infos depuis le cache
   else{
     // affiche le joueur sur la page
-    $liste.append("<li><a href='#'><span>Matchs joués</span><span class='ul-li-count'>" + joueur_temp.joues + "</span></a></li>");
-    $liste.append("<li><a href='#'><span>Matchs gagnés</span><span class='ul-li-count'>" + joueur_temp.gagnes + "</span></a></li>");
-    $liste.append("<li><a href='#'><span>Matchs perdus</span><span class='ul-li-count'>" + joueur_temp.perdus + "</span></a></li>");
-    $liste.append("<li><a href='#'><span>Goals</span><span class='ul-li-count'>" + joueur_temp.goals + "</span></a></li>");
-    $liste.append("<li><a href='#'><span>Assists</span><span class='ul-li-count'>" + joueur_temp.assists + "</span></a></li>");
-    $liste.append("<li><a href='#'><span>Points</span><span class='ul-li-count'>" + joueur_temp.points + "</span></a></li>");
+    $liste.append("<li><span>Matchs joués</span><span class='ul-li-count'>" + joueur_temp.joues + "</span></li>");
+    $liste.append("<li><span>Matchs gagnés</span><span class='ul-li-count'>" + joueur_temp.gagnes + "</span></li>");
+    $liste.append("<li><span>Matchs perdus</span><span class='ul-li-count'>" + joueur_temp.perdus + "</span></li>");
+    $liste.append("<li><span>Goals</span><span class='ul-li-count'>" + joueur_temp.goals + "</span></li>");
+    $liste.append("<li><span>Assists</span><span class='ul-li-count'>" + joueur_temp.assists + "</span></li>");
+    $liste.append("<li><span>Points</span><span class='ul-li-count'>" + joueur_temp.points + "</span></li>");
 
     // appelle la fonction de callback avec en paramètre le joueur trouvé
     success(joueur_temp);
@@ -402,7 +402,7 @@ function get_match_du_jour(url, success){
         $match = $(this);
 
         // récupert la division
-        division = "<h2 class='match_live_division'>" + $match.find('.div-name').html() + "</h2>";
+        division = "<h2 class='match_division'>" + $match.find('.div-name').html() + "</h2>";
 
         // récupert les équipes
         $equipes = $match.find('.first-games-teams');
@@ -411,24 +411,24 @@ function get_match_du_jour(url, success){
         equipe1 = $($equipes[0]).find('img');
         equipe1_img = equipe1.attr('src');
         equipe1 = equipe1.attr('title');
-        equipe1_el = "<img src='" + equipe1_img + "' alt=\"" + equipe1 + "\" class='match_live_equipe' />";
+        equipe1_el = "<img src='" + equipe1_img + "' alt=\"" + equipe1 + "\" class='match_equipe' />";
 
         // puis l'équipe 2
         equipe2 = $($equipes[1]).find('img');
         equipe2_img = equipe2.attr('src');
         equipe2 = equipe2.attr('title');
-        equipe2_el = "<img src='" + equipe2_img + "' alt=\"" + equipe2 + "\" class='match_live_equipe' />";
+        equipe2_el = "<img src='" + equipe2_img + "' alt=\"" + equipe2 + "\" class='match_equipe' />";
 
         // récupert la date du match
-        date = "<div class='match_live_date'>" + $match.find('.dateandtime').html() + "</div>";
+        date = "<div class='match_date'>" + $match.find('.dateandtime').html() + "</div>";
 
         // puis le score
         score = $match.find('.score-live');
         if (score.length > 0){
-          score = "<div class='match_live_score'>" + $(score[0]).html() + ' - ' + $(score[1]).html() + "</div>";
+          score = "<div class='match_score'>" + $(score[0]).html() + ' - ' + $(score[1]).html() + "</div>";
         }
         else{
-          score = "<div class='match_live_score'>pas débuté</div>";
+          score = "<div class='match_score'>pas débuté</div>";
         }
 
         // puis l'url des détails du match
@@ -441,7 +441,7 @@ function get_match_du_jour(url, success){
         $match_el.append(equipe1_el);
         $match_el.append(score);
         $match_el.append(equipe2_el);
-        $match_el.append("<div class='match_live_equipe_texte'><strong>" + equipe1 + "</strong> vs <strong>" + equipe2 + "</strong></div>");
+        $match_el.append("<div class='match_equipe_texte'><strong>" + equipe1 + "</strong> vs <strong>" + equipe2 + "</strong></div>");
 
         $liste.append($match_el);
       });
@@ -449,6 +449,93 @@ function get_match_du_jour(url, success){
     // s'il n'y a pas de matchs aujourd'hui
     else{
       $liste.append("<div>Pas de match aujourd'hui</div>");
+    }
+
+
+    // appelle la fonction de callback
+    success();
+  });
+}
+
+
+
+/**
+ * Récupert le calendrier des matchs d'une divisions
+ * url : l'url depuis laquelle on veut récupérer les données
+ * success : fonction de callback en cas de réussite   */
+function get_calendrier(url, success){
+  var $liste = $("#calendrier");
+
+  // vide le classement
+  $liste.empty();
+
+  // récupert les matchs du jour
+  $.get(url, function(data){
+    var x = 0;
+    
+    // parcourt les équipes
+    var $matchs = $(data).find(".resul");
+
+    // s'il y a des matchs aujourd'hui
+    if ($matchs.length > 0){
+
+      // pour stocker les informations du match
+      var $equipes = '';
+      var equipe1 = '';
+      var equipe1_img = '';
+      var equipe1_url = '';
+      var equipe2 = '';
+      var equipe2_img = '';
+      var equipe2_url = '';
+      var score = '';
+      var url = '';
+      var date = '';
+
+
+      // parcourt les matchs récupérés
+      $matchs.each(function(){
+        $match = $(this);
+
+        // récupert la division
+        division = $match.find('.first label');
+        division.find('a').remove();
+        division = "<h2 class='match_division'>" + division.text(); + "</h2>";
+
+        // récupert les équipes
+        $equipes = $match.find('.tree-block');
+
+        // traite l'équipe 1
+        equipe1 = $equipes.find('.first-block');
+        equipe1_img = equipe1.find('img').attr('src');
+        equipe1_url = equipe1.find('label a').attr('href');
+        equipe1 = equipe1.find('label a').text();
+        equipe1_el = "<img src='" + equipe1_img + "' alt=\"" + equipe1 + "\" class='match_equipe' data-url='" + equipe1_url + "' />";
+
+        // puis l'équipe 2
+        equipe2 = $equipes.find('.td-block');
+        equipe2_img = equipe2.find('img').attr('src');
+        equipe2_url = equipe2.find('label a').attr('href');
+        equipe2 = equipe2.find('label a').text();
+        equipe2_el = "<img src='" + equipe2_img + "' alt=\"" + equipe2 + "\" class='match_equipe' data-url='" + equipe2_url + "' />";
+
+        // récupert la date du match
+        date = "<div class='match_date'>" + $match.find('.resul-date').html() + "</div>";
+
+        var $match_el = $("<li/>");
+        // $match_el.data('url', url);
+        $match_el.append(division);
+        $match_el.append(date);
+        $match_el.append(equipe1_el);
+        $match_el.append("<span class='vs'>vs</span>");
+        $match_el.append(equipe2_el);
+        $match_el.append("<div class='match_equipe_texte'><strong>" + equipe1 + "</strong> vs <strong>" + equipe2 + "</strong></div>");
+
+        $liste.append($match_el);
+      });
+    }
+    // s'il n'y a plus de match à jouer
+    else{
+      $liste.append("<div>Plus de match à jouer</div>");
     }
 
 
@@ -470,6 +557,15 @@ function init(){
       $(".nav-menu ul").listview();
       $(".nav-menu").trigger("updatelayout");
     });
+  });
+
+
+
+  // lors du chargement de la page du classement
+  $(document).on("click", ".nav-menu a.page_divisions", function(){
+    $('#page_divisions h1').text('Classement');
+    $("#page_divisions").trigger("updatelayout");
+    $(".nav-menu").panel("close");
   });
 
 
@@ -615,6 +711,33 @@ function init(){
       // puis on masque le loader
       $.mobile.loading("hide");
     });
+  });
+
+
+
+  // lors du chargement de la page du calendrier
+  $(document).on("click", ".nav-menu a.page_calendrier", function(){
+    $('#page_divisions h1').text('Calendrier');
+    $("#page_divisions").trigger("updatelayout");
+    $(".nav-menu").panel("close");
+    
+//     // on affiche un loader
+//     $.mobile.loading( "show", {
+//       text: "Chargement...",
+//       textVisible: true,
+//       theme: 'b',
+//       textonly: false,
+//       html: ""
+//     });
+
+//     // on raffraichit les données depuis le site
+//     get_calendrier("http://www.fshbr.ch/calendrier/index/3", function(){
+//       // raffraichit la liste
+//       $('#page_calendrier .calendrier').listview("refresh");
+
+//       // puis on masque le loader
+//       $.mobile.loading("hide");
+//     });
   });
 }
 

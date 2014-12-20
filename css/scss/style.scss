@@ -51,22 +51,23 @@
 
 
 
-// pour les matchs du jour
-ul#matchs_live{
+// pour les matchs
+ul#matchs_live,
+ul#calendrier{
 	li{
 		text-align: center;
 		padding: 20px 0;
 		background-color: #ffffff;
 
-		.match_live_division{
+		.match_division{
 			color: #8abd00;
 		}
 
-		.match_live_date{
+		.match_date{
 			margin-bottom: 20px;
 		}
 
-		.match_live_equipe{
+		.match_equipe{
 			display: inline-block;
 			vertical-align: middle;
 
@@ -79,13 +80,18 @@ ul#matchs_live{
 			}
 		}
 
-		.match_live_score{
+		.match_score{
 			display: inline-block;
 			width: 150px;
 		}
 
-		.match_live_equipe_texte{
+		.match_equipe_texte{
 			margin-top: 20px;
+		}
+
+		.vs{
+			display: inline-block;
+			margin: 0 20px;
 		}
 	}	
 }
